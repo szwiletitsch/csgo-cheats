@@ -8,11 +8,14 @@ This project is solely intended for educational purposes. The purpose of this re
 This Project is aiming to grant insight in how direct memory access works and how much can be done with it. 
 
 ## Must do before being able to use
-in pymem\.process replace:
+### Change a line of code in pymem\.process
+old:
 ``` python
         yield module_info
 ```
-with:
+new:
 ``` python
         yield [module_info, hModule]
 ```
+### Update the offsets
+CS:GO offsets change with every update so you need to get the new offsets from [Hazedumper](https://raw.githubusercontent.com/frk1/hazedumper/master/csgo.json).
