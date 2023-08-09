@@ -1,3 +1,7 @@
+"""
+This module provides basic functionality for memory access.
+"""
+
 import win32gui
 import win32process
 import pymem

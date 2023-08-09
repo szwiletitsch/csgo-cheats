@@ -1,3 +1,9 @@
+"""
+This module provides a Transparent Click-Through FullScreen overlay and a Draw class that can
+draw basic geometry onto the overlay. \n
+Example usage can be found in the __name__ == '__main__' section.
+"""
+
 import math
 import glfw
 import win32gui

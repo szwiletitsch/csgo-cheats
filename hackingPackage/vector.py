@@ -1,3 +1,17 @@
+"""
+This module provides a Vec3 class with common functionalities such as:  \n
+> addition of vectors (v1 + v2)                                         \n
+> subtraction of vectors (v1 - v2)                                      \n
+> dot product of two vectors (v1 * v2)                                  \n
+> scaling of a vector where s is a float (v * s | s * v)                \n
+> length of the vector (abs(v))                                         \n
+-----------------------------------                                     \n
+Further functionalities include:                                        \n
+> v.load() returns a list [v.x, v.y, v.z]                               \n
+> v.validate_view_angles() makes pitch yaw and roll valid for csgo      \n
+
+"""
+
 from math import sqrt
 
 
@@ -27,6 +41,9 @@ class Vec3:
         elif (type(other) == float or type(other) == int) and type(self) == Vec3:
             return Vec3(self.x * other, self.y * other, self.z * other)
 
+    def __rmul__(self, other):
+        return self * other
+
     def __repr__(self):
         return "[x, y, z] = " + str([self.x, self.y, self.z])
 
@@ -36,7 +53,7 @@ class Vec3:
     def load(self):
         return [self.x, self.y, self.z]
 
-    def normalize(self):
+    def validate_view_angles(self):
         if self.x > 89:
             self.x = 89
         elif self.x < -89:
