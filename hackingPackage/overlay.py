@@ -5,10 +5,11 @@ import win32con
 
 from OpenGL.GL import *
 
+glfw.init()
+
 
 class FullScreenOverlay:
     def __init__(self):
-        glfw.init()
         self.video_mode, self.window = self.__create_window()
 
         self.width = self.video_mode.size.width
@@ -25,8 +26,8 @@ class FullScreenOverlay:
     def __enter__(self):
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        glfw.terminate()
+    def __exit__(self, *_):
+        glfw.destroy_window(self.window)
 
     def __create_window(self):
         # glfw
