@@ -9,7 +9,6 @@ This module provides a Vec3 class with common functionalities such as:  \n
 Further functionalities include:                                        \n
 > v.load() returns a list [v.x, v.y, v.z]                               \n
 > v.validate_view_angles() makes pitch yaw and roll valid for csgo      \n
-
 """
 
 from math import sqrt
