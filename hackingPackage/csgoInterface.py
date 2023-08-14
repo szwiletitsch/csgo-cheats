@@ -43,31 +43,9 @@ class Player:
         return self.get_bone_pos(8)
 
 
-class LocalPlayer:
+class LocalPlayer(Player):
     def __init__(self):
-        self.base = handle.read_int(client_dll + signatures["dwLocalPlayer"])
-
-    def get_team(self):
-        return handle.read_int(self.base + net_vars["m_iTeamNum"])
-
-    def get_health(self):
-        return handle.read_int(self.base + net_vars["m_iHealth"])
-
-    def get_pos(self):
-        return read_vec(handle, self.base + net_vars["m_vecOrigin"])
-
-    def get_view_offset(self):
-        return read_vec(handle, self.base + net_vars["m_vecViewOffset"])
-
-    def get_bone_pos(self, bone):
-        bone_matrix_ptr = handle.read_int(self.base + net_vars["m_dwBoneMatrix"])
-        x = handle.read_float(bone_matrix_ptr + 0x30 * bone + 0x0C)
-        y = handle.read_float(bone_matrix_ptr + 0x30 * bone + 0x1C)
-        z = handle.read_float(bone_matrix_ptr + 0x30 * bone + 0x2C)
-        return Vec3(x, y, z)
-
-    def get_head_pos(self):
-        return self.get_bone_pos(8)
+        super().__init__(handle.read_int(client_dll + signatures["dwLocalPlayer"]))
 
     def get_view_angles(self):
         return read_vec(handle, client_state_ptr + signatures["dwClientState_ViewAngles"])
