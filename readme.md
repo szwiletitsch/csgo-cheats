@@ -8,14 +8,19 @@ This project is solely intended for educational purposes. The purpose of this re
 This Project is aiming to grant insight in how direct memory access works and how much can be done with it. 
 
 ## Must do before being able to use
-### Change a line of code in pymem\.process
+### Install Packages
+To install the required packages run the following command in your python 3.7 venv
+``` bash
+pip install -r requirements.txt
+```
+### Replace a line of code in pymem\.process
 old:
 ``` python
-        yield module_info
+yield module_info
 ```
 new:
 ``` python
-        yield [module_info, hModule]
+yield [module_info, hModule]
 ```
 ### Update the offsets
-CS:GO offsets change with every update so you need to get the new offsets from [Hazedumper](https://raw.githubusercontent.com/frk1/hazedumper/master/csgo.json).
+CS:GO offsets change with every update, so you need to get the new offsets from [Hazedumper](https://raw.githubusercontent.com/frk1/hazedumper/master/csgo.json).
