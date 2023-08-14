@@ -1,5 +1,5 @@
 from json import loads
-from hackingPackage.memory_access import *
+from hackingPackage.memoryAccess import *
 
 
 with open("data/offsets.json", "rt") as f:

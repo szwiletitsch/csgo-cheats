@@ -1,5 +1,5 @@
 from hackingPackage.overlay import FullScreenOverlay, Draw
-from hackingPackage.csgo_interface import LocalPlayer, get_players, world_to_screen
+from hackingPackage.csgoInterface import LocalPlayer, get_players, world_to_screen
 from hackingPackage.io import is_pressed
 
 
