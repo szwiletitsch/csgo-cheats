@@ -21,11 +21,11 @@ class CheatMenu:
     def __init__(self, root, config):
         self.root = root
         self.root.title("CheatMenu")
+        self.root.call('wm', 'attributes', '.', '-topmost', True)
 
         self.check_vars = []
         self.check_boxes = []
         for index, (title, func) in enumerate(config["cheats"]):
-            print(index, title, func)
             self.check_vars.append(tk.BooleanVar())
             self.check_boxes.append(
                 tk.Checkbutton(
@@ -46,7 +46,6 @@ class CheatMenu:
         self.toggle_thread(2, thread_function2)
 
     def toggle_thread(self, thread_number, target_function):
-        print(thread_number, target_function)
         if thread_number in [t[0] for t in self.threads]:
             for thread in self.threads:
                 if thread[0] == thread_number:
@@ -70,4 +69,5 @@ if __name__ == "__main__":
             ["Test2", thread_function2]
         ]
     })
+
     tk_root.mainloop()
