@@ -73,7 +73,7 @@ class LocalPlayer:
         return read_vec(handle, client_state_ptr + signatures["dwClientState_ViewAngles"])
 
     def set_view_angle(self, vec: Vec3):
-        vec = vec.normalize()
+        vec = vec.validate_view_angles()
         write_vec(handle, client_state_ptr + signatures["dwClientState_ViewAngles"], vec.load())
 
     def get_view_matrix(self):
