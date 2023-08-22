@@ -1,8 +1,9 @@
 from json import loads
 from hackingPackage.memoryAccess import *
+from os import path
 
 
-with open("data/offsets.json", "rt") as f:
+with open(path.join(path.dirname(__file__), "..", "data", "offsets.json"), "rt") as f:
     a = f.read()
     signatures = loads(a)["signatures"]
     net_vars = loads(a)["netvars"]
